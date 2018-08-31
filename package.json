@@ -4,7 +4,10 @@
   "description": "JavaScript development environment Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node buildScript/startMessage.js",
-      "start":"babel-node buildScript/srcServer.js"
+      "start":"babel-node buildScript/srcServer.js",
+      "lint":"esw webpack.config.* src builtScript --color",
+      "lint:watch":"npm run lint -- --watch"
+
 
   },
   "author": "Rohan",
