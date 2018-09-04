@@ -9,7 +9,10 @@
       "lint:watch":"npm run lint -- --watch",
       "test":"mocha --reporter progress buildScript/testSetup.js \"src/**/*.test.js\"",
       "test:watch":"npm run test -- --watch",
-      "start":"npm-run-all --parallel open:src lint:watch test:watch"
+      "start":"npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
+      "generate-mock-data":"babel-node buildScript/generateMockData.js",
+      "prestart-mockapi":"npm run generate-mock-data",
+      "start-mockapi":"json-server --watch src/api/db.json --port 3001"
 
 
   },
