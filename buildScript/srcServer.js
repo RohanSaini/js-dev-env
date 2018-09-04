@@ -16,7 +16,15 @@ app.use(require('webpack-dev-middleware')(compiler,{
 
 app.get('/',function(req,res){
 res.sendFile(path.join(__dirname,'../src/index.html'));
+
 });
+
+app.get('/Users',function(req,res){
+  // res.sendFile(path.join(__dirname,'../src/index.html'));
+  res.json([
+    {"id":1,"name":"xyz","email":"abc@gmail.com"}
+  ]);
+  });
 
 app.listen(port,function(err){
   if(err)

@@ -1,6 +1,22 @@
-import './index.css'
-import numeral from 'numeral';
+import {getUsers} from './api/userapi'
 
-const courseValue=numeral(1000).format('$0,0.00');
-debugger; // eslint-disable-line
-console.log(`I would pay ${courseValue} for this awsome course`);// eslint-disable-line
+
+getUsers().then(results=>{
+
+  let userBody="";
+
+  results.forEach(user => {
+    userBody+=`
+    <tr>
+    <td> <a href="#" data-id="${user.id}" class="deleteUser">Delete</a></td>
+    <td>${user.id}</td>
+    <td>${user.name}</td>
+    <td>${user.eamil}</td>
+    `
+
+  });
+
+  global.document.getElementById('users').innerHTML=userBody;
+});
+
+
