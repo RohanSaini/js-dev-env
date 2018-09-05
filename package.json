@@ -12,7 +12,11 @@
       "start":"npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
       "generate-mock-data":"babel-node buildScript/generateMockData.js",
       "prestart-mockapi":"npm run generate-mock-data",
-      "start-mockapi":"json-server --watch src/api/db.json --port 3001"
+      "start-mockapi":"json-server --watch src/api/db.json --port 3001",
+      "clean-dist":"rimraf ./dist && mkdir dist",
+      "prebuild": "npm-run-all clean-dist test lint",
+      "build" :"babel-node buildScript/build.js",
+      "postbuild":"babel-node buildScript/distServer.js "
 
 
   },
